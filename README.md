@@ -12,9 +12,11 @@ Data files:
 - titanic.csv
 - goldengate.csv
 - lusitania.csv
+
 Function files:
 - functions.py
 - input.py
+
 Main code:
 
 ## How to format your readme
