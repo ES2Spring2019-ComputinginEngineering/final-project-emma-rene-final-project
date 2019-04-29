@@ -7,8 +7,15 @@ Short project description here, click the **EDIT (pencil) button** in the top ri
 Describe how the users(instructors) should run your code to see an ***easy to run example of the functionality***. This should all be in a *main.py* "driver" script.
 
 ## File List
-
-Create a list of all of the files in your repository with one sentence descriptions 
+Data files:
+- norge.csv
+- titanic.csv
+- goldengate.csv
+- lusitania.csv
+Function files:
+- functions.py
+- input.py
+Main code:
 
 ## How to format your readme
 
