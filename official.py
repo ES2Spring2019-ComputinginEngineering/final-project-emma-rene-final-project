@@ -8,6 +8,7 @@ from scipy.stats import mode
 import csv 
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
+# import numpy.random
 
 #Functions 
 def readDataFile1(): 
@@ -127,7 +128,6 @@ ax.set_xlabel('Sex')
 ax.set_ylabel('Age')
 ax.set_zlabel('Economic Class')
 plt.title('SS Golden Gate Survival Analysis')
-ax.mouse_init()
 plt.show()
 
 #3D Plot for Norge 
@@ -160,8 +160,8 @@ X1= tsex[tsurvival==0]
 Y1= tage[tsurvival==0]
 Z1= teclass[tsurvival==0]
 
-ax.scatter(X,Y,Z, c='b', marker='|')
-ax.scatter(X1,Y1,Z1, c='g', marker = '_')
+ax.scatter(X,Y,Z, c='b', marker='o', alpha = .1)
+ax.scatter(X1,Y1,Z1, c='g', marker = 'o', alpha = .1)
 ax.set_xlabel('Sex')
 ax.set_ylabel('Age')
 ax.set_zlabel('Economic Class')
@@ -193,3 +193,60 @@ def kNearestNeighborClassifier(k, tpsex, tpage, tpclass, tsex, tage, teclass, ts
     k_survival = tsurvival[k_indices]
     sortedk = mode(k_survival)
     return sortedk
+sortedk = kNearestNeighborClassifier(3, tpsex, tpage, tpclass, tsex, tage, teclass, tsurvival)
+
+# k means 
+
+def select(k):
+    centroid1 =np.random.randint(0,1,(k,1))
+    centroid2 = np.random.randint(0,1,(k,1))
+    centroid3 = np.random.randint(0,3,(k,1))
+    centroids = np.concatenate((centroid1,centroid2,centroid3), axis=1)
+    return centroids
+centroids = select(2)
+def assign(k, tage, tsex, teclass): 
+    centroids = select(k)
+    k = centroids.shape[0]
+    distances = np.zeros((k, len(tsex)))
+    for i in range(k):
+        s = centroids[i,0]
+        a = centroids[i,1]
+        c = centroids[i,2]
+        distances[i] = np.sqrt((tsex-s)**2 + (tage-a)**2 + (teclass-c)**2)
+    assignments = np.argmin(distances, axis = 0)
+    return assignments
+
+assignments =assign(2, tage, tsex, teclass)
+
+def update(k, tage, tsex, teclass):
+    assignments = assign(k, tage, tsex, teclass)
+    newassignments = np.array(assignments)
+    centroids = select(k)
+    maximum = np.amax(newassignments)
+    for i in range(maximum+1):
+        centroids[i][1] = np.mean(tage[newassignments==i])
+        centroids[i][0] = np.mean(tsex[newassignments==i])
+        centroids[i][2] = np.mean(teclass[newassignments==i])
+    return centroids
+
+centroids = update(2, tage, tsex, teclass)
+
+def iterate(k, tage, tsex, teclass): 
+    iteration = 0
+    max_iteration = 5000
+    while iteration <= max_iteration:
+        assign(k, tage, tsex, teclass)
+        update(k, tage, tsex, teclass)
+        iteration +=1
+    
+"""def graphingKMeans(k, tage, tsex, teclass, assignments, centroids): 
+    plt.figure()
+    for i in range(assignments.max()+1):
+        rcolor = np.random.rand(3,)
+        plt.plot(tsex[assignments==i],tage[assignments==i], teclass[assignments==i]".", label = "Class " + str(i), color = rcolor)
+        plt.plot(centroids[i, 0], centroids[i, 1], centroids[,],"D", label = "Centroid " + str(i), color = rcolor)
+    plt.xlabel("sex")
+    plt.ylabel("age")
+    plt.ylabel("class")
+    plt.legend()
+    plt.show()"""
