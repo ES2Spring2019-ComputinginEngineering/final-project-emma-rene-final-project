@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Apr 23 15:43:12 2019
-
 @author: renel
 """
 #Maritime Disaster Survival Analysis 
@@ -9,11 +8,11 @@ Created on Tue Apr 23 15:43:12 2019
 #Creators: René L.J. and Emma W.
 
 #Libraries 
+
 import csv 
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
-
 
 #Functions 
 def readDataFile1(): 
@@ -100,26 +99,35 @@ tsurvival, teclass, tsex, tage= readDataFile3()
 fig= plt.figure()
 ax= plt.axes(projection='3d')
 
-X= gsex
-Y= gage
-Z= geclass
+X= gsex[gsurvival==1]
+Y= gage[gsurvival==1]
+Z= geclass[gsurvival==1]
+X1= gsex[gsurvival==0]
+Y1= gage[gsurvival==0]
+Z1= geclass[gsurvival==0]
 
-ax.scatter(X,Y,Z, c='g', marker='o')
+ax.scatter(X,Y,Z, c='g', marker='o',alpha=.1)
+ax.scatter(X1,Y1,Z1, c='r', marker='o', alpha=.1)
 ax.set_xlabel('Sex')
 ax.set_ylabel('Age')
 ax.set_zlabel('Economic Class')
 plt.title('SS Golden Gate Survival Analysis')
+ax.mouse_init()
 plt.show()
 
 #3D Plot for Norge 
 fig= plt.figure()
 ax= plt.axes(projection='3d')
 
-X= nsex
-Y= nage
-Z= neclass
+X= nsex[nsurvival==1]
+Y= nage[nsurvival==1]
+Z= neclass[nsurvival==1]
+X1= nsex[nsurvival==0]
+Y1= nage[nsurvival==0]
+Z1= neclass[nsurvival==0]
 
-ax.scatter(X,Y,Z, c='r', marker='o')
+ax.scatter(X,Y,Z, c='r', marker='o', alpha=.1)
+ax.scatter(X1,Y1,Z1, c='b', marker='o', alpha=.1)
 ax.set_xlabel('Sex')
 ax.set_ylabel('Age')
 ax.set_zlabel('Economic Class')
@@ -130,11 +138,15 @@ plt.show()
 fig= plt.figure()
 ax= plt.axes(projection='3d')
 
-X= tsex
-Y= tage
-Z= teclass
+X= tsex[tsurvival==1]
+Y= tage[tsurvival==1]
+Z= teclass[tsurvival==1]
+X1= tsex[tsurvival==0]
+Y1= tage[tsurvival==0]
+Z1= teclass[tsurvival==0]
 
-ax.scatter(X,Y,Z, c='b', marker='o')
+ax.scatter(X,Y,Z, c='b', marker='|')
+ax.scatter(X1,Y1,Z1, c='g', marker = '_')
 ax.set_xlabel('Sex')
 ax.set_ylabel('Age')
 ax.set_zlabel('Economic Class')
