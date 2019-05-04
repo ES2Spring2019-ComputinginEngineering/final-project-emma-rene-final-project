@@ -174,9 +174,9 @@ def iterate(k, age, sex, eclass):
 
 """def calculateDistanceArrayTPC(tpsex, tpage, tpclass, final_centroids):
     distance_array = np.zeros((len(sex)))
-    X= 
-    Y= 
-    Z= 
+    X= final_centroids[i,1]
+    Y= final_centroids[i,0]
+    Z= final_centroids[i,2]
     for i in range(0,len(sex)):
         dist = math.sqrt((age[i] - tpage)**2 + (sex[i]-tpsex)**2 + (eclass[i] - tpclass)**2)
         distance_array[i] = dist
