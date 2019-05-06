@@ -1,6 +1,6 @@
 # Maritime Disaster Survival Rate Analysis
 
-Short project description here, click the **EDIT (pencil) button** in the top right corner of this frame to copy the markdown formatted template.
+Our project analyzes the crew and passenger lists from three different historical maritime disasters (The SS Norge, Golden Gate, and Titanic sinking), graphs the data on 3D plots, and tells you whether or not an individual will survive given a specific age, sex, and class.
 
 ## Instructions
 
@@ -24,9 +24,13 @@ Main code:
 
 ## Features
 
-In your readme, you can:
 ```
 Give code examples
 ```
+## Useful Links
+You can find more information about the historic maritime disasters we used for our datasets at the links below.
 
-You can also include useful links, like this one with information about [formatting markdown](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
+[Golden Gate background](http://www.aquaticsportsadventures.com/Articles/Misc/SSGoldenGate/SSGoldenGate.html)
+[Titanic facts and statistics](https://www.ultimatetitanic.com/facts-statistics/)
+[Norge background](http://www.norwayheritage.com/articles/templates/great-disasters.asp?articleid=119&zoneid=1)
+
