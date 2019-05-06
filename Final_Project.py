@@ -1,13 +1,8 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Apr 23 15:43:12 2019
-@author: renel
-"""
-#Maritime Disaster Survival Analysis 
-#Functions File
-#Creators: René L.J. and Emma W.
+# Maritime Disaster Survival Analysis Project
+# Functions File
+# Creators: René L.J. and Emma W.
 
-#Libraries 
+#LIBRARIES
 
 import numpy as np
 import math
@@ -16,8 +11,9 @@ import csv
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
-# functions
+# FUNCTIONS
 
+# reads golden gate file
 def readDataFile1(): 
    csv_file= open('goldengate.csv')
    total_row = sum(1 for row in csv_file)-1
@@ -43,6 +39,7 @@ def readDataFile1():
        index += 1
    return gsex, geclass, gage, gsurvival
 
+# reads norge file
 def readDataFile2(): 
    csv_file= open('norge.csv')
    total_row = sum(1 for row in csv_file)-1
@@ -68,6 +65,7 @@ def readDataFile2():
          index += 1
    return nsurvival, neclass, nage, nsex
 
+# reads titanic file
 def readDataFile3():
     csv_file= open('titanic.csv')
     total_row = sum(1 for row in csv_file)-1
@@ -93,6 +91,7 @@ def readDataFile3():
           index += 1
     return tsurvival, teclass, tsex, tage
 
+# creates a test point from user input
 def testpoint():
     instructions = """For age, enter a number between 0 (meaning somewhere 
     between 1 month and  a year) and 100. For social class, enter 1 for first
@@ -101,28 +100,29 @@ def testpoint():
     print(instructions)
     agenum = int(input("Enter age: "))
     if agenum <= 16:
-        tpage = 1
+        tpage = 1 #  value of minor
     else:
-        tpage = 0
+        tpage = 0 # value of adult
     tpclass = int(input("Enter social class: "))
     sexnum = input("Enter sex: ")
-    if sexnum == 'M' or sexnum == 'm':
+    if sexnum == 'M' or sexnum == 'm': # male
         tpsex = 0
-    else:
+    else: # female
         tpsex = 1
-    return tpsex, tpage, tpclass
+    return tpsex, tpage, tpclass 
 
+# nearest neighbor functions
 def calculateDistanceArray(tpsex, tpage, tpclass, sex, age, eclass):
     distance_array = np.zeros((len(sex)))
     for i in range(0,len(sex)):
         dist = math.sqrt((age[i] - tpage)**2 + (sex[i]-tpsex)**2 + (eclass[i] - tpclass)**2)
-        distance_array[i] = dist
+        distance_array[i] = dist # creates array of distances between test point and data
     return distance_array
 
 def nearestNeighborClassifier(tpsex, tpage, tpclass, age, sex, eclass, survival):
     distance_array = calculateDistanceArray(tpsex, tpage, tpclass, age, sex, eclass)
     min = np.argmin(distance_array)
-    nearest_class = survival[min]
+    nearest_class = survival[min] # finds the classification of the nearest pt
     return nearest_class, min
 
 def kNearestNeighborClassifier(k, tpsex, tpage, tpclass, sex, age, eclass, survival):
@@ -134,8 +134,7 @@ def kNearestNeighborClassifier(k, tpsex, tpage, tpclass, sex, age, eclass, survi
     return sortedk
 
 # k means clustering
-
-def select(k):
+def select(k): # creates k random 3D centroids
     centroid1 =np.random.randint(0,1,(k,1))
     centroid2 = np.random.randint(0,1,(k,1))
     centroid3 = np.random.randint(0,3,(k,1))
@@ -166,19 +165,30 @@ def update(k, age, sex, eclass, assignments):
 def iterate(k, age, sex, eclass): 
     iteration = 0
     max_iteration = 5000
+    centroids = select(k)
     while iteration <= max_iteration:
-        final_assignments = assign(k, age, sex, eclass, centroids)
-        final_centroids = update(k, age, sex, eclass, assignments)
+        assignments = assign(k, age, sex, eclass, centroids)
+        centroids = update(k, age, sex, eclass, assignments)
         iteration +=1
-    return final_centroids, final_assignments
+    return centroids, assignments
 
-"""def calculateDistanceArrayTPC(tpsex, tpage, tpclass, final_centroids):
-    distance_array = np.zeros((len(sex)))
-    X= final_centroids[i,1]
-    Y= final_centroids[i,0]
-    Z= final_centroids[i,2]
-    for i in range(0,len(sex)):
-        dist = math.sqrt((age[i] - tpage)**2 + (sex[i]-tpsex)**2 + (eclass[i] - tpclass)**2)
-        distance_array[i] = dist
-    return distance_array
-"""
+# finding nearest centroid to test point's classification 
+def calculateDistanceArrayTPC(tpsex, tpage, tpclass, centroids):
+    distance_arrayTPC = np.zeros((len(centroids)))
+    X = np.zeros(len(centroids))
+    Y = np.zeros(len(centroids))
+    Z = np.zeros(len(centroids))
+    for i in range(len(centroids)):
+        X[i]= centroids[i,1]
+        Y[i]= centroids[i,0]
+        Z[i]= centroids[i,2]
+    for i in range(0,len(X)):
+        dist = math.sqrt((X[i] - tpage)**2 + (Y[i]-tpsex)**2 + (Z[i] - tpclass)**2)
+        distance_arrayTPC[i] = dist
+    return distance_arrayTPC
+
+def nearestNeighborTPC(tpsex, tpage, tpclass, centroids, survival):
+    distance_arrayTPC = calculateDistanceArrayTPC(tpsex, tpage, tpclass, centroids)
+    min = np.argmin(distance_arrayTPC)
+    nearest_class = survival[min]
+    return nearest_class, min # nearest neighbor for test pt and final centroid
