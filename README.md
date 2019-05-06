@@ -23,14 +23,11 @@ Main code:
 - main.py
 
 ## Features
-
-```
-Give code examples
-```
+We used techniques including reading and translating csv files, using nearest neighbor classification and 3D k-means clustering, graphing on a 3D plot, and analyzing the data. 
 ## Useful Links
 You can find more information about the historic maritime disasters we used for our datasets at the links below.
 
-[Golden Gate background](http://www.aquaticsportsadventures.com/Articles/Misc/SSGoldenGate/SSGoldenGate.html)
-[Titanic facts and statistics](https://www.ultimatetitanic.com/facts-statistics/)
-[Norge background](http://www.norwayheritage.com/articles/templates/great-disasters.asp?articleid=119&zoneid=1)
+- [Golden Gate background](http://www.aquaticsportsadventures.com/Articles/Misc/SSGoldenGate/SSGoldenGate.html)
+- [Titanic facts and statistics](https://www.ultimatetitanic.com/facts-statistics/)
+- [Norge background](http://www.norwayheritage.com/articles/templates/great-disasters.asp?articleid=119&zoneid=1)
 
