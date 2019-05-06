@@ -4,22 +4,25 @@ Short project description here, click the **EDIT (pencil) button** in the top ri
 
 ## Instructions
 
-Describe how the users(instructors) should run your code to see an ***easy to run example of the functionality***. This should all be in a *main.py* "driver" script.
+- Run the main.py file to start the program. 
+- When prompted, answer the questions regarding sex, age, and social class. 
+- The file will take this information and ultimately return a predicted fate based on statistics from each of the maritime distasters we used. 
+
 
 ## File List
-Data files:
+Data files (all in the data folder):
 - norge.csv
 - titanic.csv
 - goldengate.csv
 - lusitania.csv
 
-Function files:
-- functions.py
-- input.py
+Function file:
+- Final_Project.py
 
 Main code:
+- main.py
 
-## How to format your readme
+## Features
 
 In your readme, you can:
 ```
@@ -27,8 +30,3 @@ Give code examples
 ```
 
 You can also include useful links, like this one with information about [formatting markdown](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
-
-You can 
-- Also
-- Make
-- Lists
