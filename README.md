@@ -19,19 +19,18 @@ tcentroids = update(2, tage, tsex, teclass, tassignments)
 tfinal_centroids, tfinal_assignments = iterate(2, tage, tsex, teclass)
 t2nearest_class, tmin2 = nearestNeighborTPC(tpsex, tpage, tpclass, tfinal_centroids, tsurvival)
 ```
-This chunk of code shows the Titanic as an example. It uses **calculateDistanceArray, nearestNeighborClassifier, kNearestNeighborClassifier, select, assign, update, iterate**, and a modified version of nearestNeighbor called **nearestNeighborTPC** (which also calls a modified version of calculateDistanceArray). As initial arguments, many of these functions take the sex, age and class of the test point (tpsex, tpage, tpclass), and the sex, age, class, and survival (fate of passenger) arrays of the members onboard for each ship (tsurvival, nsurvival, gsurvival, as examples). Eventually, centroids and assignments are created and updated through k-means clustering until getting to a point of higher accuracy. The end result is k final centroids and an array of final assignments, which are used to get the survival value for the test point in **nearestNeighborTPC**. 
+This chunk of code shows the Titanic as an example. It uses *calculateDistanceArray, nearestNeighborClassifier, kNearestNeighborClassifier, select, assign, update, iterate*, and a modified version of nearestNeighbor called *nearestNeighborTPC* (which also calls a modified version of calculateDistanceArray). As initial arguments, many of these functions take the **sex, age** and **class** of the test point (**tpsex, tpage, tpclass**), and the **sex, age, class**, and **survival** (fate of passenger) arrays of the members onboard for each ship (**tsurvival, nsurvival, gsurvival**, as examples). Eventually, **centroids** and **assignments** are created and updated through k-means clustering until getting to a point of higher accuracy. The end result is k **final_centroids** and an array of **final_assignments**, which are used to get the survival value for the test point in *nearestNeighborTPC*. 
 
 ## File List
 Data files (all in the data folder):
 - norge.csv
 - titanic.csv
 - goldengate.csv
-- lusitania.csv
 
 Function file:
 - Final_Project.py
 
-Main code:
+Code demonstration file:
 - main.py
 
 ## Features
@@ -42,4 +41,6 @@ You can find some more information about the background and statistics of the hi
 - [Golden Gate background](http://www.aquaticsportsadventures.com/Articles/Misc/SSGoldenGate/SSGoldenGate.html)
 - [Titanic facts and statistics](https://www.ultimatetitanic.com/facts-statistics/)
 - [Norge background](http://www.norwayheritage.com/articles/templates/great-disasters.asp?articleid=119&zoneid=1)
+- [Where we got our data](file:///C:/Users/User/Downloads/1207156109_sapp.pdf), and [an article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3421183/) written based off of the datasets
+
 
