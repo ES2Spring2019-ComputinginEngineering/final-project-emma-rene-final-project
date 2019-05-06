@@ -43,5 +43,6 @@ You can find some more information about the background and statistics of the hi
 - [Norge background](http://www.norwayheritage.com/articles/templates/great-disasters.asp?articleid=119&zoneid=1)
 - [An article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3421183/) written based off of the datasets where we got our data
 
-More information on the data we used: file:///C:/Users/User/Downloads/1207156109_sapp.pdf
+More information on the data we used: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3421183/bin/1207156109_sapp.pdf
+
 
