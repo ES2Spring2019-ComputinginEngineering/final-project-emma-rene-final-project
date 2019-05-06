@@ -1,34 +1,33 @@
 # Maritime Disaster Survival Rate Analysis
 
-Short project description here, click the **EDIT (pencil) button** in the top right corner of this frame to copy the markdown formatted template.
+Our project analyzes the crew and passenger lists from three different historical maritime disasters (The SS Norge, Golden Gate, and Titanic sinking), graphs the data on 3D plots, and tells you whether or not an individual will survive given a specific age, sex, and class.
 
 ## Instructions
 
-Describe how the users(instructors) should run your code to see an ***easy to run example of the functionality***. This should all be in a *main.py* "driver" script.
+- Run the main.py file to start the program. 
+- When prompted, answer the questions regarding sex, age, and social class. 
+- The file will take this information and ultimately return a predicted fate based on statistics from each of the maritime distasters we used. 
+
 
 ## File List
-Data files:
+Data files (all in the data folder):
 - norge.csv
 - titanic.csv
 - goldengate.csv
 - lusitania.csv
 
-Function files:
-- functions.py
-- input.py
+Function file:
+- Final_Project.py
 
 Main code:
+- main.py
 
-## How to format your readme
+## Features
+We used techniques including reading and translating csv files, using nearest neighbor classification and 3D k-means clustering, graphing on a 3D plot, and analyzing the data. 
+## Useful Links
+You can find more information about the historic maritime disasters we used for our datasets at the links below.
 
-In your readme, you can:
-```
-Give code examples
-```
+- [Golden Gate background](http://www.aquaticsportsadventures.com/Articles/Misc/SSGoldenGate/SSGoldenGate.html)
+- [Titanic facts and statistics](https://www.ultimatetitanic.com/facts-statistics/)
+- [Norge background](http://www.norwayheritage.com/articles/templates/great-disasters.asp?articleid=119&zoneid=1)
 
-You can also include useful links, like this one with information about [formatting markdown](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
-
-You can 
-- Also
-- Make
-- Lists
