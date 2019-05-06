@@ -6,7 +6,7 @@ Our project analyzes the crew and passenger lists from three different historica
 
 - Run the main.py file to start the program. 
 - When prompted, answer the questions regarding sex, age, and social class. 
-- The file will take this information and ultimately return a predicted fate based on statistics from each of the maritime distasters we used. It will also graph the data.
+- The file will take this information and ultimately return a predicted fate based on statistics from each of the maritime distasters we used. It will also graph the data. The graphs plot each datapoint and color-code: red if they didn't survive, green if they did. There is overlap that can make it difficult to see multiple points at one point in space, which we tried to improve a bit by lowering the opacity of each dot.
 Each result is claculated given a test point and the data from a specific file using the code design below in the main demonstration file.
 ```
 #Titanic Analysis 
