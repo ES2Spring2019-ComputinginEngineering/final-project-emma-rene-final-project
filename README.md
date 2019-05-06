@@ -6,9 +6,9 @@ Our project analyzes the crew and passenger lists from three different historica
 
 - Run the main.py file to start the program. 
 - When prompted, answer the questions regarding sex, age, and social class. 
-- The file will take this information and ultimately return a predicted fate based on statistics from each of the maritime distasters we used. 
+- The file will take this information and ultimately return a predicted fate based on statistics from each of the maritime distasters we used. It will also graph the data.
 Each result is claculated given a test point and the data from a specific file using the code design below in the main demonstration file.
-'''
+```
 #Titanic Analysis 
 tdistance_array = calculateDistanceArray(tpsex, tpage, tpclass, tsex, tage, teclass)
 tnearest_class, min = nearestNeighborClassifier(tpsex, tpage, tpclass, tage, tsex, teclass, tsurvival)
@@ -18,7 +18,7 @@ tassignments =assign(2, tage, tsex, teclass, tcentroids)
 tcentroids = update(2, tage, tsex, teclass, tassignments)
 tfinal_centroids, tfinal_assignments = iterate(2, tage, tsex, teclass)
 t2nearest_class, tmin2 = nearestNeighborTPC(tpsex, tpage, tpclass, tfinal_centroids, tsurvival)
-'''
+```
 This chunk of code shows the Titanic as an example. It uses calculateDistanceArray, nearestNeighborClassifier, kNearestNeighborClassifier, select, assign, update, iterate, and a modified version of nearestNeighbor called nearestNeighborTPC (which also calls a modified version of calculateDistanceArray). 
 
 ## File List
