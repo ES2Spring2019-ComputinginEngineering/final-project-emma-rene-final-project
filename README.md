@@ -19,7 +19,7 @@ tcentroids = update(2, tage, tsex, teclass, tassignments)
 tfinal_centroids, tfinal_assignments = iterate(2, tage, tsex, teclass)
 t2nearest_class, tmin2 = nearestNeighborTPC(tpsex, tpage, tpclass, tfinal_centroids, tsurvival)
 ```
-This chunk of code shows the Titanic as an example. It uses calculateDistanceArray, nearestNeighborClassifier, kNearestNeighborClassifier, select, assign, update, iterate, and a modified version of nearestNeighbor called nearestNeighborTPC (which also calls a modified version of calculateDistanceArray). 
+This chunk of code shows the Titanic as an example. It uses **calculateDistanceArray, nearestNeighborClassifier, kNearestNeighborClassifier, select, assign, update, iterate**, and a modified version of nearestNeighbor called **nearestNeighborTPC** (which also calls a modified version of calculateDistanceArray). As initial arguments, many of these functions take the sex, age and class of the test point (tpsex, tpage, tpclass), and the sex, age, class, and survival(fate of passenger) arrays of the members onboard for each ship (tsurvival, nsurvival, gsurvival, as examples). Eventually, centroids and assignments are created and updated through k-means clustering until getting to a point of higher accuracy. The end result is k final centroids and an array of final assignments, which are used to get the survival value for the test point in **nearestNeighborTPC**. 
 
 ## File List
 Data files (all in the data folder):
@@ -37,7 +37,7 @@ Main code:
 ## Features
 We used techniques including importing and translating data from csv files, using nearest neighbor classification and 3D k-means clustering, graphing on a 3D plot, and analyzing the data. 
 ## Useful Links
-You can find more information about the historic maritime disasters we used for our datasets at the links below.
+You can find more information about the background and statistics of the historical maritime disasters we used for our datasets at the links below.
 
 - [Golden Gate background](http://www.aquaticsportsadventures.com/Articles/Misc/SSGoldenGate/SSGoldenGate.html)
 - [Titanic facts and statistics](https://www.ultimatetitanic.com/facts-statistics/)
